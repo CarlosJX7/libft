@@ -1,6 +1,6 @@
 # Libft - Your Very First Own Library
 
-*This project has been developed as a foundational milestone in the 42 curriculum by [@carlinaq](https://github.com/carlinaq).*
+*This project has been developed as a foundational milestone in the 42 curriculum by [@carlinaq](https://github.com/carlosjx7).*
 
 **[ Language: C ] | [ Standard: 42 Norm ] | [ Status: Development ]**
 
