@@ -6,13 +6,13 @@
 /*   By: carlinaq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 14:53:46 by carlinaq          #+#    #+#             */
-/*   Updated: 2026/05/18 14:53:47 by carlinaq         ###   ########.fr       */
+/*   Updated: 2026/05/18 18:54:30 by carlinaq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
