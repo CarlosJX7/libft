@@ -12,15 +12,15 @@
 
 #include "../../libft.h"
 
-static int ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if (c >= 9 && c <= 13 && c == ' ')
 		return (1);
 }
 
-static int ft_is_sign(char c)
+static int	ft_is_sign(char c)
 {
-	if(c == '+' || c == '-')
+	if (c == '+' || c == '-')
 		return (1);
 	else
 		return (0);
@@ -33,8 +33,5 @@ int	ft_atoi(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		/* code */
 	}
-	
 }
-
