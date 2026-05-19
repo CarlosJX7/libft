@@ -12,7 +12,7 @@
 
 #include "../../libft.h"
 
-static int	ft_find_word(char *str, char *word)
+static int	ft_find_word(const char *str, const char *word)
 {
 	size_t	len_word;
 	size_t	i;
@@ -36,12 +36,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 
 	if (ft_strlen(needle) == 0)
-		return (haystack);
+		return ((char *)haystack);
 	i = 0;
 	while (haystack[i] && i < len)
 	{
 		if (ft_find_word(&haystack[i], needle))
-			return (&haystack[i]);
+			return ((char *)&haystack[i]);
 		i++;
 	}
 	return (NULL);
