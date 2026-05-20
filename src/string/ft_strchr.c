@@ -12,31 +12,48 @@
 
 #include "../../libft.h"
 
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	if (!s)
+// 		return (NULL);
+// 	while (s[i])
+// 	{
+// 		if (s[i] == (char)c)
+// 			return ((char *)&s[i]);
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
+
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
-	char	*mem;
+	char *str;
 
+	str = (char *)s;
 	i = 0;
-	if (!s)
+	if (!str)
 		return (NULL);
-	while (s[i])
+	while (str[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+		if (str[i] == (char)c)
+			return (&str[i]);
 		i++;
 	}
 	return (NULL);
 }
 
-// #include <stdio.h>
-// #include <string.h>
-// int main(void)
-// {
-// 	char *str = "aaabaaa";
-// 	char c = 'b';
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	char *str = "aaabaaa";
+	char c = 'b';
 
-// 	printf("%s\n", strchr(str, c));
-// 	printf("%s\n", ft_strchr(str, c));
-// 	return 0;
-// }
+	printf("%s\n", strchr(str, c));
+	printf("%s\n", ft_strchr(str, c));
+	return 0;
+}
