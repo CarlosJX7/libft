@@ -12,27 +12,6 @@
 
 #include "../../libft.h"
 
-#include <stdio.h>
-
-static int	ft_find_word(const char *str, const char *word)
-{
-	size_t	len_word;
-	size_t	i;
-
-	i = 0;
-	len_word = ft_strlen(word);
-	while (str[i] && i < len_word)
-	{
-		if (str[i] != word[i])
-			return (0);
-		i++;
-	}
-	if (len_word == i)
-		return (1);
-	else
-		return (0);
-}
-
 static int	ft_char_inset(char c, char const *set)
 {
 	size_t	i;
@@ -47,27 +26,49 @@ static int	ft_char_inset(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+static unsigned int	ft_find_start(char const *s1, char const *set)
 {
-	size_t	len_set;
-	size_t	len_s1;
-	char *str;
 	size_t	i;
+
 	i = 0;
 	while (s1[i] && ft_char_inset(s1[i], set))
-	{
-		printf("%c\n", s1[i]);
 		i++;
-	}
+	return (i);
 }
 
-int main(void)
+static size_t	ft_find_end(char const *s1, char const *set)
 {
-	char *s1 = "aaaabbbaaabbaaaaaabbbaaaaaa";
-	char *s2 = "ab";
-	char *str;
-	ft_strtrim(s1, s2);
-	//printf(">%s<\n", str);
-	//free(str);
-	return 0;
+	int	i;
+
+	i = ft_strlen(s1) - 1;
+	while (i >= 0 && ft_char_inset(s1[i], set))
+		i--;
+	return (i);
 }
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char			*str;
+	unsigned int	start;
+	size_t			end;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = ft_find_start(s1, set);
+	end = ft_find_end(s1, set);
+	if (start > (unsigned int)end)
+		return (ft_substr(s1, 0, 0));
+	str = ft_substr(s1, start, end - start + 1);
+	return (str);
+}
+
+// int main(void)
+// {
+// 	char *s1 = "aaaabbbcaacabbaaaaaabbbaaaaaa";
+// 	char *s2 = "ab";
+// 	char *str;
+// 	str = ft_strtrim(s1, s2);
+// 	printf(">%s<\n", str);
+// 	free(str);
+// 	return 0;
+// }

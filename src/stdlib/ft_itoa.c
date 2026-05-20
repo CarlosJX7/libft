@@ -9,3 +9,74 @@
 /*   Updated: 2026/05/18 19:35:49 by carlinaq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../libft.h"
+
+char	*ft_create_str(int n, size_t len)
+{
+	char	*str;
+	size_t	i;
+	long	nbr;
+
+	i = 0;
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	nbr = (long)n;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		str[i] = '-';
+		i++;
+	}
+	str[len] = '\0';
+	len--;
+	while (nbr > 0)
+	{
+		str[len] = nbr % 10 + '0';
+		nbr = nbr / 10;
+		len--;
+	}
+	return (str);
+}
+
+size_t	ft_int_len(long n)
+{
+	size_t	i;
+
+	if (n == 0)
+		return (1);
+	i = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	size_t	len;
+
+	len = ft_int_len(n);
+	str = ft_create_str(n, len);
+	if (!str)
+		return (NULL);
+	return (str);
+}
+
+// #include <stdio.h>
+// #include <limits.h>
+// int main(void)
+// {
+// 	printf(">%s<\n", ft_itoa(INT_MAX));
+// 	printf(">%s<\n", ft_itoa(INT_MIN));
+// 	return 0;
+// }
