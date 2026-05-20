@@ -33,7 +33,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		i++;
 	}
 	free(dest);
-	return ((void *)dest);
+	return (dst);
 }
 
 // #include <string.h>
