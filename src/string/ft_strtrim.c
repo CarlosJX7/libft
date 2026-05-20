@@ -33,48 +33,41 @@ static int	ft_find_word(const char *str, const char *word)
 		return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_char_inset(char c, char const *set)
 {
 	size_t	i;
-	size_t	j;
-	char *mem;
-	//char *str;
+
 	i = 0;
-	//mem = ft_strnstr(s1, set, ft_strlen(s1));
-	while (s1[i])
+	while (set[i])
 	{
-		//printf("%p & %p\n", mem, &s1[i]);
-		if (ft_find_word(&s1[i], set))
-		{
-			i += ft_strlen(set);
-		}
+		if (set[i] == c)
+			return (1);
 		i++;
 	}
-	mem = malloc(sizeof(char) * i);
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	len_set;
+	size_t	len_s1;
+	char *str;
+	size_t	i;
 	i = 0;
-	j = 0;
-	while (s1[i])
+	while (s1[i] && ft_char_inset(s1[i], set))
 	{
-		//printf("%p & %p\n", mem, &s1[i]);
-		if (ft_find_word(&s1[i], set))
-		{
-			i += ft_strlen(set);
-		}
-		mem[j] = s1[i];
-		//printf("%c\n", s1[i]);
+		printf("%c\n", s1[i]);
 		i++;
-		j++;
 	}
-	return (mem);
 }
 
 int main(void)
 {
 	char *s1 = "aaaabbbaaabbaaaaaabbbaaaaaa";
-	char *s2 = "bbb";
+	char *s2 = "ab";
 	char *str;
-	str = ft_strtrim(s1, s2);
-	printf(">%s<\n", str);
-	free(str);
+	ft_strtrim(s1, s2);
+	//printf(">%s<\n", str);
+	//free(str);
 	return 0;
 }
