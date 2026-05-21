@@ -12,19 +12,19 @@
 
 #include "../../libft.h"
 
-void	*ft_memset(void *s, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*dest;
 	size_t			i;
 
-	dest = (unsigned char *)s;
+	dest = (unsigned char *)b;
 	i = 0;
 	while (i < len)
 	{
 		dest[i] = (unsigned char)c;
 		i++;
 	}
-	return (dest);
+	return (b);
 }
 
 // #include <stdio.h>
@@ -39,7 +39,7 @@ void	*ft_memset(void *s, int c, size_t len)
 // 	// hex para los valores no imprimibles
 // 	while (i < 10)
 // 	{
-// 		printf("%02x", (unsigned char)buffer1[i]);
+// 		printf("%c", (unsigned char)buffer1[i]);
 // 		i++;
 // 	}
 // 	printf("\n\n");

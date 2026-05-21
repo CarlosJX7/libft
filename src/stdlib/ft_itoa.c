@@ -65,11 +65,17 @@ char	*ft_itoa(int n)
 	char	*str;
 	size_t	len;
 
+	if (n == 0)
+	{
+		str = malloc(2);
+		if (!str)
+			return (NULL);
+		str[0] = '0';
+		str[1] = '\0';
+		return (str);
+	}
 	len = ft_int_len(n);
-	str = ft_create_str(n, len);
-	if (!str)
-		return (NULL);
-	return (str);
+	return (ft_create_str(n, len));
 }
 
 // #include <stdio.h>
@@ -77,6 +83,7 @@ char	*ft_itoa(int n)
 // int main(void)
 // {
 // 	printf(">%s<\n", ft_itoa(INT_MAX));
+// 	printf(">%s<\n", ft_itoa(0));
 // 	printf(">%s<\n", ft_itoa(INT_MIN));
 // 	return 0;
 // }

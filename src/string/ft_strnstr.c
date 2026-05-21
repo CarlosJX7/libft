@@ -12,37 +12,43 @@
 
 #include "../../libft.h"
 
-static int	ft_find_word(const char *str, const char *word)
+static int	ft_find_word(const char *str, const char *word, size_t max)
 {
-	size_t	len_word;
 	size_t	i;
 
 	i = 0;
-	len_word = ft_strlen(word);
-	while (str[i] && i < len_word)
+	while (word[i] && i < max)
 	{
 		if (str[i] != word[i])
 			return (0);
 		i++;
 	}
-	if (len_word == i)
-		return (1);
-	else
-		return (0);
+	return (word[i] == '\0');
 }
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 
-	if (ft_strlen(needle) == 0)
-		return ((char *)haystack);
+	if (little[0] == '\0')
+		return ((char *)big);
+
 	i = 0;
-	while (haystack[i] && i < len)
+	while (big[i] && i < len)
 	{
-		if (ft_find_word(&haystack[i], needle))
-			return ((char *)&haystack[i]);
+		if (ft_find_word(&big[i], little, len - i))
+			return ((char *)&big[i]);
 		i++;
 	}
 	return (NULL);
 }
+// #include <stdio.h>
+// #include <bsd/string.h>
+// int main(void)
+// {
+// 	char *big = "aaabcabcd";
+// 	char *little = "cd";
+// 	printf(">%s<\n", strnstr(big, little, 8));
+// 	printf(">%s<\n", ft_strnstr(big, little, 8));
+// 	return 0;
+// }
