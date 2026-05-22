@@ -28,6 +28,7 @@ void	*ft_calloc(size_t count, size_t size)
 	return ((void *)mem);
 }
 
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -42,7 +43,7 @@ int main(void)
 	count = 16  * 1000;
 	size = 16;
 	printf("=== ft_calloc ===\n");
-	mem1 = ft_calloc(1024ULL * 1024 * 1024, 4);
+	mem1 = ft_calloc(count, size);
 	if (!mem1)
 	{
 		printf("Error\n");
@@ -56,7 +57,7 @@ int main(void)
 	}
 	free(mem1);
 	printf("\n=== calloc original ===\n");
-	mem2 = calloc(1024ULL * 1024 * 1024, 4);
+	mem2 = calloc(count , size);
 	if (!mem2)
 		return (1);
 	i = 0;
@@ -68,3 +69,4 @@ int main(void)
 	free(mem2);
 	return (0);
 }
+*/
