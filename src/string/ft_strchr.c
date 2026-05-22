@@ -36,10 +36,41 @@ char	*ft_strchr(const char *s, int c)
 // #include <string.h>
 // int main(void)
 // {
-// 	char *str = "aaabaaa";
-// 	char c = 'b';
-
-// 	printf("%s\n", strchr(str, c));
-// 	printf("%s\n", ft_strchr(str, c));
+// 	{
+// 		char *str = "aaabaaa";
+// 		char c = 'b';
+// 		printf("%s\n", strchr(str, c));
+// 		printf("%s\n", ft_strchr(str, c));
+// 	}
+// 	{
+// 		char *str = "aaabaaa";
+// 		char c = 'x';
+// 		printf("%s\n", strchr(str, c));
+// 		printf("%s\n", ft_strchr(str, c));
+// 	}
+// 	{
+// 		char *str = "baaa";
+// 		char c = 'b';
+// 		printf("%s\n", strchr(str, c));
+// 		printf("%s\n", ft_strchr(str, c));
+// 	}
+// 	{
+// 		char *str = "bbbbb";
+// 		char c = 'b';
+// 		printf("%s\n", strchr(str, c));
+// 		printf("%s\n", ft_strchr(str, c));
+// 	}
+// 	{
+// 		char *str = "";
+// 		char c = 'b';
+// 		printf("%s\n", strchr(str, c));
+// 		printf("%s\n", ft_strchr(str, c));
+// 	}
+// 	{
+// 		char *str = "aaabaaa";
+// 		char c = ' ';
+// 		printf("%s\n", strchr(str, c));
+// 		printf("%s\n", ft_strchr(str, c));
+// 	}
 // 	return 0;
 // }
