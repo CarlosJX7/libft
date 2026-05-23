@@ -12,15 +12,27 @@
 
 #include "../../libft.h"
 
-void	ft_move(unsigned char *new_dest, unsigned char *new_src, size_t n)
+void	ft_move(unsigned char *dest, unsigned char *src, size_t n)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		new_dest[i] = new_src[i];
+		dest[i] = src[i];
 		i++;
+	}
+}
+
+void	ft_move_back(unsigned char *dest, unsigned char *src, size_t n)
+{
+	int len;
+
+	len = (int)n;
+	while (len >= 0)
+	{
+		dest[len] = src[len];
+		n--;
 	}
 }
 
@@ -28,15 +40,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*new_dest;
 	unsigned char	*new_src;
-	size_t			i;
 
 	if (dest == src || n == 0)
 		return (dest);
 	new_dest = (unsigned char *)dest;
 	new_src = (unsigned char *)src;
-	i = 0;
 	if (dest < src)
 		ft_move(new_dest, new_src, n);
+	else
+		ft_move_back(new_dest, new_src, n);
 	return (dest);
 }
 // #include <string.h>
@@ -54,9 +66,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 // 	{// memmove gestiona el solapamiento guardando el buffer > tmp
 // 		char buffer[] = "HOLA1234";
 // 		size_t n = 4;
-
 // 		printf("Buffer antes: %s\n", buffer);
 // 		memmove(buffer + 1, buffer, n);
 // 		printf("Caso 2 (intentando solapamiento): %s\n", buffer);
 // 	}
 // 	return 0;
+// }
