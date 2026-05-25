@@ -12,7 +12,7 @@
 
 #include "../../libft.h"
 
-static size_t	get_len(char *dst, size_t size)
+static size_t	min_dst_len(char *dst, size_t size)
 {
 	size_t	dstlen;
 
@@ -25,24 +25,24 @@ static size_t	get_len(char *dst, size_t size)
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dlen;
+	size_t	dlen_min;
 	size_t	slen;
 	size_t	size_copy;
 	size_t	i;
 
 	slen = ft_strlen(src);
-	dlen = get_len(dst, size);
-	if (dlen == size)
-		return (dlen + slen);
+	dlen_min = min_dst_len(dst, size);
+	if (size == dlen_min)
+		return (dlen_min + slen);
 	i = 0;
-	size_copy = size - dlen - 1;
+	size_copy = size - dlen_min - 1;
 	while (src[i] && i < size_copy)
 	{
-		dst[dlen + i] = src[i];
+		dst[dlen_min + i] = src[i];
 		i++;
 	}
-	dst[dlen + i] = '\0';
-	return (dlen + slen);
+	dst[dlen_min + i] = '\0';
+	return (dlen_min + slen);
 }
 // #include <stdio.h>
 // #include <string.h>

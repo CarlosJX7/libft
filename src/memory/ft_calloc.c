@@ -41,8 +41,8 @@ void	*ft_calloc(size_t count, size_t size)
 // 	size_t count;
 // 	size_t size;
 // 	int i;
-// 	count = (SIZE_MAX + 1) / 10;
-// 	size = 10;
+// count = (SIZE_MAX + 1) / 10;
+// size = 10;
 // 	printf("=== ft_calloc ===\n");
 // 	mem1 = ft_calloc(count, size);
 // 	if (!mem1)
