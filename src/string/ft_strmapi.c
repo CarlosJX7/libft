@@ -22,6 +22,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	len = ft_strlen(s);
 	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
@@ -31,3 +33,20 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
+
+char ft_test(unsigned int n, char c)
+{
+	n = n + 1;
+	return (c + 1);
+}
+// #include <stdio.h>
+// int main(void)
+// {
+// 	char *str = "aaaa";
+// 	char *str2;
+
+// 	str2 = ft_strmapi(str, &ft_test);
+// 	printf(">%s<\n", str2);
+// 	free(str2);
+// 	return 0;
+// }
