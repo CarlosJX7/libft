@@ -106,3 +106,22 @@ char	**ft_split(char const *s, char c)
 	tab[i] = NULL;
 	return (tab);
 }
+/*#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	char *str = " Hello@@@World@@this@is split@";
+	char c = '@';
+	char **strs;
+	int i = 0;
+
+	strs = ft_split(str, c);
+	while (strs[i])
+	{
+		printf(">%s<\n", strs[i]);
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+	return (0);
+}*/
