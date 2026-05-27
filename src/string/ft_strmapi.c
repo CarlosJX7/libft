@@ -34,11 +34,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (str);
 }
 
-char ft_test(unsigned int n, char c)
-{
-	n = n + 1;
-	return (c + 1);
-}
+// char ft_test(unsigned int n, char c)
+// {
+// 	n = n + 1;
+// 	return (c + 1);
+// }
 // #include <stdio.h>
 // int main(void)
 // {
